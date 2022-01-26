@@ -10,7 +10,9 @@ class ItemController extends Controller
 {
     public function index()
     {
-        return view('admin.item.index');
+        $items = Item::get();
+        $data = ['items' => $items];
+        return view('admin.item.index',$data);
     }
 
     public function create(){
@@ -21,5 +23,10 @@ class ItemController extends Controller
         //dd($posts);
         Item::create($posts);
         return redirect()->route('admin.item.index');
+    }
+    public function edit(Request $request,$id){
+        $item = Item::find($id);
+        dd($item);
+        return view('admin.item.edit');
     }
 }

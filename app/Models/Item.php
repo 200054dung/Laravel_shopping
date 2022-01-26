@@ -16,7 +16,7 @@ class Item extends Model
         'stock',
         'picture',
     ];
-    protected $garded = [
+    protected $guarded = [
         'id',
         'create_at',
         'updated_at',
